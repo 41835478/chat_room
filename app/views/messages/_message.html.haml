@@ -1,0 +1,17 @@
+%div.clearfix
+  - if message.sender === current_user
+    .popover.left
+      .arrow
+      %h3.popover-title
+        %div= "#{message.sender.label_name}："
+        %small= format_time(message.created_at)
+      .popover-content
+        %p= message.content
+  - else
+    .popover.right
+      .arrow
+      %h3.popover-title
+        %div= "#{message.sender.label_name}："
+        %small= format_time(message.created_at)
+      .popover-content
+        %p= message.content

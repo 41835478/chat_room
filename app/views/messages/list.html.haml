@@ -1,0 +1,13 @@
+%h3.page-header= "与 #{@friend.label_name} 的谈话"
+#message-list
+  = render @messages.reverse
+
+= hidden_field_tag "friend_id", params[:friend_id], id: "friend-id"
+
+.navbar.navbar-fixed-bottom
+  .container
+    .row
+      .col-xs-9
+        = text_field_tag "content", "", class: "form-control", id: "msg-content"
+      .col-xs-3
+        = submit_tag "发送", class: "btn btn-primary send-message"

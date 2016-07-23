@@ -1,0 +1,8 @@
+.list-group-item(id="member-#{contact.member_id}")
+  = link_to list_messages_path(friend_id: contact.member_id), class: "", "data-turbolinks" => false do
+    = unread_tag(contact.member_id, current_user.id)
+    = contact.member.label_name
+
+  %button.close(aria-label="Close")
+    = link_to contact_path(contact), method: :delete, data:{ confirm: "确认删除联系人？" } do
+      %span(aria-hidden="true") &times;

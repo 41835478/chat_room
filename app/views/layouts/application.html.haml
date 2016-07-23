@@ -1,0 +1,18 @@
+!!! 5
+%html
+  %head
+    %meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    = csrf_meta_tags
+    %title 聊天室
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+
+  %body
+    = render partial: '/shared/header'
+
+    .container
+      - if notice
+        %pre.notice= notice
+      - if alert
+        %pre.alert= alert
+      = yield
